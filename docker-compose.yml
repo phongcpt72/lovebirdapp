@@ -13,3 +13,5 @@ services:
     volumes:
       - .:/app
     restart: unless-stopped
+    env_file:
+      - .env
