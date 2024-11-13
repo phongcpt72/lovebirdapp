@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  telegram_mini_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+      - MINI_APP_URL=${MINI_APP_URL}
+    volumes:
+      - .:/app
+    restart: unless-stopped
