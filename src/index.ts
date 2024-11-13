@@ -1,15 +1,17 @@
 import express from "express"
 import TelegramBot, { CallbackQuery, InlineQuery, Message } from "node-telegram-bot-api"
 import path from "path"
+import * as dotenv from 'dotenv'
 
+dotenv.config()
 
-const TOKEN = process.env.TELEGRAM_BOT_TOKEN || "7341710736:AAH_cquxzzMaz2zH3PcTkPlZPsbx0p7rS2g"
-const miniAppUrl = process.env.MINI_APP_URL || "https://lovebird-demo.vercel.app/"
+const TOKEN = process.env.TELEGRAM_BOT_TOKEN || ""
+const miniAppUrl = process.env.MINI_APP_URL || ""
 
 const server = express()
 const bot = new TelegramBot(TOKEN, { polling: true })
 const port = process.env.PORT || 3000
-const miniAppName = "lovebird_01"
+const miniAppName = "lovebird_demo"
 const queries: Record<string, CallbackQuery> = {}
 
 server.use(express.static(path.join(__dirname, 'static')))
