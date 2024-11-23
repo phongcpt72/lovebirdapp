@@ -46,6 +46,10 @@ bot.on("inline_query", (iq: InlineQuery) => {
     bot.answerInlineQuery(iq.id, [{ type: "game", id: "0", game_short_name: miniAppName }])
 })
 
+bot.on('polling_error', (error) => {
+    console.error('[polling_error]', error)
+})
+
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 })
