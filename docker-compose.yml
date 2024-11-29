@@ -6,12 +6,13 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - '3000:3000'
     environment:
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
       - MINI_APP_URL=${MINI_APP_URL}
     volumes:
       - .:/app
+      - /app/node_modules
     restart: unless-stopped
     env_file:
       - .env
