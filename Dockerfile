@@ -8,13 +8,14 @@ RUN npm install
 COPY . .
 RUN npm run build
 
+COPY .env .env
+
 RUN echo "===This is <app> folder after build:"
-RUN ls -la /app && sleep 5
+RUN ls -la /app && sleep 10
 
 RUN echo "===This is <dist> folder after build:"
 RUN ls -la /app/dist && sleep 5
 
-COPY .env .env
 
 EXPOSE 3000
 
